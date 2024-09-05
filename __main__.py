@@ -27,7 +27,7 @@ async def main() -> None:
                 print(F'Loaded cog.{cog} ({i}/{len(cogs.names)})')
             except:
                 print(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
-        await discordbot.start('MTE1NTc1ODA0NDQ2NzE3MTMyOA.Gn6OPh.vMGsnSg7qvG0YH46dEamHx7yG6kaoFDESefEfw')
+        await discordbot.start('')
 
 asyncio.run(main())
 
