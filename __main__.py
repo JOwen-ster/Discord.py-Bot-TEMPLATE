@@ -6,6 +6,7 @@ import discord
 
 intents = discord.Intents.default()
 discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
+token = ''
 
 @discordbot.event
 async def on_ready() -> None:
@@ -27,7 +28,7 @@ async def main() -> None:
                 print(F'Loaded cog.{cog} ({i}/{len(cogs.names)})')
             except:
                 print(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
-        await discordbot.start('')
+        await discordbot.start(token)
 
 asyncio.run(main())
 
