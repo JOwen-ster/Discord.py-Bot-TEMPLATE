@@ -23,7 +23,7 @@ Template/
 │    ├─── util3.py
 │    ├─── ...
 ├─── __init__.py
+├─── .env
 ├─── bot.py
 ├─── __main__.py
-├─── .env
 ```
