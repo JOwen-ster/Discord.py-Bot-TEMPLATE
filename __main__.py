@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-TOKEN = getenv("DISCORD_TOKEN")
+TOKEN = getenv("DISCORD_BOT_TOKEN")
 
 intents = discord.Intents.default()
 discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
