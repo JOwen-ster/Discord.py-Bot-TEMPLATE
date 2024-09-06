@@ -1,39 +1,31 @@
 import asyncio
 import bot
-import cogs
 import discord
+from os import getenv
+from dotenv import load_dotenv
 
+
+load_dotenv()
+TOKEN = getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
-token = ''
 
-@discordbot.event
-async def on_ready() -> None:
-    tree = await discordbot.tree.sync()
-    print(F'Synced {len(tree)} tree commands')
-
-async def confirm() -> None:
-    print('Main Ran.')
+async def confirmation():
+    print('Ran main')
 
 async def main() -> None:
     # do other async actions
-    await confirm()
+    await confirmation()
 
     # start the client
     async with discordbot:
-        for i, cog in enumerate(cogs.names, 1):
-            try:
-                await discordbot.load_extension('cogs.' + cog)
-                print(F'Loaded cog.{cog} ({i}/{len(cogs.names)})')
-            except:
-                print(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
-        await discordbot.start(token)
+        await discordbot.start(TOKEN)
 
 asyncio.run(main())
 
-
-#https://www.youtube.com/watch?v=_KZOe8-uhZI
-
-# YOU MUST USE TYPE HINTS
+# YOU MUST USE TYPE HINTS FOR ALL PARAMS WITH COG SLASH/APPLICATION COMMANDS OR SELF WILL BE PASSED AS THE INTERACTION
 #https://github.com/Rapptz/discord.py/discussions/8372
+
+#COG EXAMPLE
+# https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be?permalink_comment_id=3488145
