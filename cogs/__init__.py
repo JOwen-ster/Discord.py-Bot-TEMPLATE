@@ -1,8 +1,8 @@
 names = (
-    # Main
+    # Main Cogs
     "message",
     
-    # Sub
+    # Sub Cogs
     
 )
 

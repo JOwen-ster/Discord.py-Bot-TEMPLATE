@@ -6,23 +6,24 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-TOKEN = getenv("DISCORD_TOKEN")
+if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
+    print('Token environment variable is empty')
+else:
+    intents = discord.Intents.default()
+    discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
 
-intents = discord.Intents.default()
-discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
+    async def confirmation():
+        print('Created Discord Bot Instance')
 
-async def confirmation():
-    print('Ran main')
+    async def main() -> None:
+        # do other async actions
+        await confirmation()
 
-async def main() -> None:
-    # do other async actions
-    await confirmation()
+        # start the client
+        async with discordbot:
+            await discordbot.start(TOKEN)
 
-    # start the client
-    async with discordbot:
-        await discordbot.start(TOKEN)
-
-asyncio.run(main())
+    asyncio.run(main())
 
 # YOU MUST USE TYPE HINTS FOR ALL PARAMS WITH COG SLASH/APPLICATION COMMANDS OR SELF WILL BE PASSED AS THE INTERACTION
 #https://github.com/Rapptz/discord.py/discussions/8372
