@@ -35,3 +35,25 @@ Template/
 
 > [!NOTE]
 > Bot file is used to create a custom Discord Bot Client. This lets you import your bot into different files and make calls when your Client is created.
+
+# Get Started
+
+## Clone this repository
+
+- [X] **__HTTPS__**
+```
+git clone https://github.com/JOwen-ster/Discord.py-Bot-TEMPLATE.git
+```
+
+- [X] **__SSH__**
+```
+git clone git@github.com:JOwen-ster/Discord.py-Bot-TEMPLATE.git
+```
+
+- [X] **__GH CLI__**
+```
+gh repo clone JOwen-ster/Discord.py-Bot-TEMPLATE
+```
+
+
+
