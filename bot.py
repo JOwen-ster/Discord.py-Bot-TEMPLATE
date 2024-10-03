@@ -14,7 +14,7 @@ class Bot(commands.Bot):
                 print(F'Loaded cog.{cog} ({i}/{len(cogs.names)})')
             except:
                 print(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
-        print('Ran setup_hook')
+        print('Ran bot setup_hook.')
 
     async def on_ready(self) -> None:
         tree = await self.tree.sync()

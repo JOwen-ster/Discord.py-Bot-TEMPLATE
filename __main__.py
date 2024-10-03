@@ -1,32 +1,36 @@
 import asyncio
 import bot
 import discord
-from os import getenv
 from dotenv import load_dotenv
+from os import getenv
 
 
 load_dotenv()
 if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
-    print('Token environment variable is empty')
-else:
-    intents = discord.Intents.default()
-    discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
+    print('Token environment variable is empty.')
+    exit(1)
 
-    async def confirmation():
-        print('Created Discord Bot Instance')
+intents = discord.Intents.default()
+discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
 
-    async def main() -> None:
-        # do other async actions
-        await confirmation()
+async def confirmation():
+    print('Created Discord Bot Instance.')
 
-        # start the client
-        async with discordbot:
-            await discordbot.start(TOKEN)
+async def main() -> None:
+    # Do other async actions
+    await confirmation()
+    # Start the bot
+    async with discordbot:
+        await discordbot.start(TOKEN)
 
-    asyncio.run(main())
+asyncio.run(main())
 
-# YOU MUST USE TYPE HINTS FOR ALL PARAMS WITH COG SLASH/APPLICATION COMMANDS OR SELF WILL BE PASSED AS THE INTERACTION
-#https://github.com/Rapptz/discord.py/discussions/8372
+# IMPORTANT
+# YOU MUST USE TYPE HINTS FOR ALL PARAMETERS WITH COG SLASH COMMANDS (application commands)
+# OR ELSE SELF@class WILL BE PASSED AS THE INTERACTION
+# https://github.com/Rapptz/discord.py/discussions/8372
 
-#COG EXAMPLE
+# COG EXAMPLE
 # https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be?permalink_comment_id=3488145
+
+# https://github.com/Rapptz/discord.py/tree/master/examples

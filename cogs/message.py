@@ -2,9 +2,9 @@ import cogs
 import discord
 from discord import app_commands
 from discord.ext import commands
-from utils.embeds import BotEmbedMessage
-from utils.embeds import BotEmbedConfirmation
-from utils.embeds import BotEmbedError
+from utils.embeds import BotMessageEmbed
+from utils.embeds import BotConfirmationEmbed
+from utils.embeds import BotErrorEmbed
 
 
 class SendMessage(commands.Cog):
@@ -21,14 +21,14 @@ class SendMessage(commands.Cog):
     @app_commands.command(name='send-message', description='Type a message the bot should send in the current channel.')
     async def send_message(self, interaction: discord.Interaction, message: str):
         try:
-            emb_message = BotEmbedMessage(description=message)
-            emb_confirm = BotEmbedConfirmation(description='Message sent!')
+            emb_message = BotMessageEmbed(description=message)
+            emb_confirm = BotConfirmationEmbed(description='Message sent!')
             await interaction.channel.send(embed=emb_message)
             await interaction.response.send_message(embed=emb_confirm, ephemeral=True)
-            # use when a response was already sent or else there is nothing to followup on
-            #await interaction.followup.send(content='Sent', ephemeral=True)
+            # use followup when a response was already sent or else there is nothing to followup on
+            # await interaction.followup.send(content='Sent', ephemeral=True)
         except:
-            emb_error = BotEmbedError(description='Could not send your message, please check my permissions.')
+            emb_error = BotErrorEmbed(description='Could not send your message, please check my permissions.')
             await interaction.response.send_message(embed=emb_error, ephemeral=True)
 
 async def setup(bot):
