@@ -13,9 +13,8 @@ class SendMessage(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.bot.tree.sync()
         cogs.cog_counter += 1
-        print(F'Message cog ready {cogs.cog_counter}/{len(cogs.names)}')
+        print(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
         
     # slash command example
     @app_commands.command(name='send-message', description='Type a message the bot should send in the current channel.')

@@ -11,7 +11,7 @@ class Bot(commands.Bot):
         for i, cog in enumerate(cogs.names, 1):
             try:
                 await self.load_extension('cogs.' + cog)
-                print(F'Loaded cog.{cog} ({i}/{len(cogs.names)})')
+                print(F'Loaded {cog} cog ({i}/{len(cogs.names)})')
             except:
                 print(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
         print('Ran bot setup_hook.')
