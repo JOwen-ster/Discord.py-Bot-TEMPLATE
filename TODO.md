@@ -1,0 +1,8 @@
+# TODO
+
+- [ ] ADD ASYNC TASK EXMAPLE
+- [ ] ADD LOGGING IN OTHER FILES
+  * Possibly create a loggin utils function
+- [ ] ADD MODAL EXAMPLE
+- [ ] ADD VIEW/BUTTON/DROPDOWN EXAMPLE
+- [ ] ADD HELP COMMAND
