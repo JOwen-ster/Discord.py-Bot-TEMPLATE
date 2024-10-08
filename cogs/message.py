@@ -15,8 +15,13 @@ class SendMessage(commands.Cog):
     async def on_ready(self):
         cogs.cog_counter += 1
         print(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
-        
-    # slash command example
+
+    # Slash command (application command) (tree command) example
+    # IMPORTANT
+    # YOU MUST USE TYPE HINTS FOR ALL PARAMETERS WITH COG SLASH COMMANDS (application commands)
+    # OR ELSE SELF@class WILL BE PASSED AS THE INTERACTION
+    # https://github.com/Rapptz/discord.py/discussions/8372
+
     @app_commands.command(name='send-message', description='Type a message the bot should send in the current channel.')
     async def send_message(self, interaction: discord.Interaction, message: str):
         try:
