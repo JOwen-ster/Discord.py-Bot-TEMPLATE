@@ -31,6 +31,6 @@ asyncio.run(main())
 # https://github.com/Rapptz/discord.py/discussions/8372
 
 # COG EXAMPLE
-# https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be?permalink_comment_id=3488145
+# https://github.com/Rapptz/discord.py/blob/master/docs/ext/commands/cogs.rst
 
 # https://github.com/Rapptz/discord.py/tree/master/examples
