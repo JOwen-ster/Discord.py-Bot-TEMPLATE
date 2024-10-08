@@ -12,6 +12,7 @@ if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
     exit(1)
 
 intents = discord.Intents.default()
+intents.message_content = True
 discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
 
 async def confirmation():
@@ -19,7 +20,7 @@ async def confirmation():
 
 async def main() -> None:
     logger = logging.getLogger('discord')
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
     handler = logging.handlers.RotatingFileHandler(
         filename='discord_bot.log',
         encoding='utf-8',
