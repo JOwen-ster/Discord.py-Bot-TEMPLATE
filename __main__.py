@@ -6,7 +6,6 @@ import logging.handlers
 from dotenv import load_dotenv
 from os import getenv
 
-
 load_dotenv()
 if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
     print('Token environment variable is empty.')
@@ -22,7 +21,7 @@ async def main() -> None:
     logger = logging.getLogger('discord')
     logger.setLevel(logging.DEBUG)
     handler = logging.handlers.RotatingFileHandler(
-        filename='discord.log',
+        filename='discord_bot.log',
         encoding='utf-8',
         maxBytes=32 * 1024 * 1024,  # 32 MiB
         backupCount=5,  # Rotate through 5 files
