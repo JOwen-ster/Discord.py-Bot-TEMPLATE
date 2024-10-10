@@ -5,6 +5,7 @@ from discord.ext import commands
 from utils.embeds import BotMessageEmbed
 from utils.embeds import BotConfirmationEmbed
 from utils.embeds import BotErrorEmbed
+from __main__ import logger
 
 
 class SendMessage(commands.Cog):
@@ -15,6 +16,7 @@ class SendMessage(commands.Cog):
     async def on_ready(self):
         cogs.cog_counter += 1
         print(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
+
 
     # Slash command (application command) (tree command) example
     # IMPORTANT
@@ -29,6 +31,8 @@ class SendMessage(commands.Cog):
             emb_confirm = BotConfirmationEmbed(description='Message sent!')
             await interaction.channel.send(embed=emb_message)
             await interaction.response.send_message(embed=emb_confirm, ephemeral=True)
+            await logger.info(f'USED COG: {self.__cog_name__}')
+
             # use followup when a response was already sent or else there is nothing to followup on
             # await interaction.followup.send(content='Sent', ephemeral=True)
         except:
