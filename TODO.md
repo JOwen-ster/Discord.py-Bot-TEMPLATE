@@ -1,5 +1,5 @@
 # TODO
-
+- [ ] UPDATE README
 - [X] ADD ASYNC TASK EXMAPLE
 - [X] ADD LOGGING IN OTHER FILES
   * Possibly create a logger utils function
