@@ -1,8 +1,9 @@
 # TODO
 
-- [ ] ADD ASYNC TASK EXMAPLE
-- [ ] ADD LOGGING IN OTHER FILES
-  * Possibly create a loggin utils function
+- [X] ADD ASYNC TASK EXMAPLE
+- [X] ADD LOGGING IN OTHER FILES
+  * Possibly create a logger utils function
 - [ ] ADD MODAL EXAMPLE
 - [ ] ADD VIEW/BUTTON/DROPDOWN EXAMPLE
 - [ ] ADD HELP COMMAND
+- [ ] ADD EMBED TEMPLATE FOR ANNOUNCEMENTS

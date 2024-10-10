@@ -1,10 +1,13 @@
 import asyncio
+import discord.ext.commands
 import bot
 import discord
 import logging
 import logging.handlers
 from dotenv import load_dotenv
 from os import getenv
+
+import discord.ext
 
 load_dotenv()
 if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
@@ -16,8 +19,6 @@ intents.message_content = True
 discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
 
 logger = logging.getLogger('discord')
-logger = logging.getLogger(__name__)
-
 logger.setLevel(logging.INFO)
 
 handler = logging.handlers.RotatingFileHandler(
@@ -32,28 +33,27 @@ formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', 
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-
 async def confirmation():
     logger.info('Created Discord Bot Instance.')
 
 async def main() -> None:
     # Run other async tasks
-    # USE ASYNC TASK GROUPS TO DO MULTIPLE TASKS AT A SINGLE TIME
+    # USE ASYNC TASK GROUPS TO DO MULTIPLE TASKS AT A SINGLE TIME FOR EASY PARALLEL PROCESSING
     # https://docs.python.org/3/library/asyncio-task.html#task-groups
     await confirmation()
     # Start the bot
-    async with discordbot:
-        try:
+    try:
+        async with discordbot:
             await discordbot.start(TOKEN)
-        except:
-            print('Invalid Token')
-            exit(1)
+    except:
+        print('Invalid Token')
+        exit(1)
 
 asyncio.run(main())
 
 # Examples
 # https://github.com/Rapptz/discord.py/tree/master/docs
-# # https://github.com/Rapptz/discord.py/tree/master/examples
+# https://github.com/Rapptz/discord.py/tree/master/examples
 
 # COG EXAMPLE
 # https://github.com/Rapptz/discord.py/blob/master/docs/ext/commands/cogs.rst
