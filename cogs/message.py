@@ -6,7 +6,7 @@ from discord.ext import tasks
 from utils.embeds import BotMessageEmbed
 from utils.embeds import BotConfirmationEmbed
 from utils.embeds import BotErrorEmbed
-from __main__ import logger
+from utils.loggingsetup import getlog
 
 
 class SendMessage(commands.Cog):
@@ -18,7 +18,7 @@ class SendMessage(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         cogs.cog_counter += 1
-        print(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
+        getlog().info(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
 
     # Slash command (application command) (tree command) example
     # IMPORTANT
@@ -33,7 +33,7 @@ class SendMessage(commands.Cog):
             emb_confirm = BotConfirmationEmbed(description='Message sent!')
             await interaction.channel.send(embed=emb_message)
             await interaction.response.send_message(embed=emb_confirm, ephemeral=True)
-            logger.info(f'USED COG: {self.__cog_name__}')
+            getlog().info(f'USED COG: {self.__cog_name__}')
 
             # use followup when a response was already sent or else there is nothing to followup on
             # await interaction.followup.send(content='Sent', ephemeral=True)
@@ -44,19 +44,19 @@ class SendMessage(commands.Cog):
             except discord.InteractionResponded:
                 await interaction.followup.send(content='Sent', ephemeral=True)
             except:
-                logger.error('ERROR: failed to response to send-message interaction')
+                getlog().error('ERROR: failed to response to send-message interaction')
             finally:
-                logger.error('ERROR: Could not terminate send-message successfully')
+                getlog().error('ERROR: Could not terminate send-message successfully')
 
     # Background task using the asyncio discord.ext tasks decorator
     @tasks.loop(minutes=1.0)
     async def updatestatus(self):
         await self.bot.change_presence(activity=discord.Game(name=F'in {len(self.bot.guilds)} servers'))
-        logger.info(F'RAN TASK: Update Status')
+        getlog().info(F'RAN TASK: Update Status')
 
     @updatestatus.before_loop
     async def before_printer(self):
-        logger.info('WAITING UNTIL READY: Update Status')
+        getlog().info('TASK WAITING UNTIL READY: Update Status')
         await self.bot.wait_until_ready()
 
 async def setup(bot):

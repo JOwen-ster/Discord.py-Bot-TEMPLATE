@@ -146,6 +146,8 @@ Normally you would create a new file named `.gitignore` and put the following in
 .env
 ```
 
+I have already done this for you so all you need to do is run the `__main__.py` file!
+
 
 
 

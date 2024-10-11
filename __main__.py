@@ -1,40 +1,24 @@
 import asyncio
 import discord.ext.commands
-import bot
+import botclient
 import discord
-import logging
-import logging.handlers
+import discord.ext
+from utils.loggingsetup import getlog
 from dotenv import load_dotenv
 from os import getenv
 
-import discord.ext
-
-load_dotenv()
-if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
-    print('Token environment variable is empty.')
-    exit(1)
 
 intents = discord.Intents.default()
 intents.message_content = True
-discordbot = bot.Bot(command_prefix='^', intents=intents, help_command=None)
+discordbot = botclient.Bot(command_prefix='^', intents=intents, help_command=None)
 
-logger = logging.getLogger('discord')
-logger.setLevel(logging.INFO)
-
-handler = logging.handlers.RotatingFileHandler(
-    filename='discord_bot.log',
-    encoding='utf-8',
-    maxBytes=32 * 1024 * 1024,  # 32 MiB
-    backupCount=5,  # Rotate through 5 files
-)
-
-dt_fmt = '%Y-%m-%d %H:%M:%S'
-formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+load_dotenv()
+if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):
+    getlog().error('Token is empty.')
+    exit(1)
 
 async def confirmation():
-    logger.info('Created Discord Bot Instance.')
+    getlog().info('Created Discord Bot Instance.')
 
 async def main() -> None:
     # Run other async tasks
@@ -46,7 +30,7 @@ async def main() -> None:
         async with discordbot:
             await discordbot.start(TOKEN)
     except:
-        print('Invalid Token')
+        getlog().error('Invalid Token')
         exit(1)
 
 asyncio.run(main())
