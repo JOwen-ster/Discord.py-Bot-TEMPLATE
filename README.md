@@ -120,6 +120,11 @@ We will be using the [discord.py](https://discordpy.readthedocs.io/en/stable/) A
 
 Go ahead and install the required libraries listen bellow for Discord, Environment Variables, and PistonAPI (used to run code safely and send the output which is what our bot will do).
 
+Activate a virtual ENV by running this command when you are in the repository directoiry.
+```
+python -m venv botenv
+```
+
 Install from the requirements.txt in this repo...
 ```
 pip install -r requirements.txt
@@ -137,8 +142,10 @@ After you have successfully installed the libraries...
 ## **Open your favorite code IDE!**
 
 Create a new file named `.env` (no name before the dot) and put the following in it.
+
 ```
 DISCORD_BOT_TOKEN = 'YOUR_BOT_TOKEN_GOES_HERE'
+CANVAS_TOKEN = 'YOUR_CANVAS_INTEGRATION_TOKEN_HERE'
 ```
 
 Normally you would create a new file named `.gitignore` and put the following inside it.
