@@ -134,8 +134,6 @@ Pip install manually with the following command...
 ```
 pip install discord && pip install python-dotenv && pip install pistonapi
 ```
-- or
-for Windows you can double click and execute [dependencies.bat](/dependencies.bat) in file explorer found in this repositorys directory.
 
 After you have successfully installed the libraries...
 
