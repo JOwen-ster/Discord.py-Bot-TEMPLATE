@@ -7,7 +7,9 @@ from utils.embeds import BotMessageEmbed
 from utils.embeds import BotConfirmationEmbed
 from utils.embeds import BotErrorEmbed
 from utils.loggingsetup import getlog
-
+from canvasapi import Canvas
+from dotenv import load_dotenv
+from os import getenv
 
 class SendMessage(commands.Cog):
     def __init__(self, bot):
@@ -47,6 +49,8 @@ class SendMessage(commands.Cog):
                 getlog().error('ERROR: failed to response to send-message interaction')
             finally:
                 getlog().error('ERROR: Could not terminate send-message successfully')
+
+    # ADD APP COMMAND
 
     # Background task using the asyncio discord.ext tasks decorator
     @tasks.loop(minutes=1.0)
