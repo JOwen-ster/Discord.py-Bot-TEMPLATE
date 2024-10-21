@@ -50,7 +50,8 @@ class SendMessage(commands.Cog):
             finally:
                 getlog().error('ERROR: Could not terminate send-message successfully')
 
-    # ADD APP COMMAND
+# ADD APP COMMAND
+
 
     # Background task using the asyncio discord.ext tasks decorator
     @tasks.loop(minutes=1.0)
