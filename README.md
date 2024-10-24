@@ -28,7 +28,7 @@ Template/
 │    ├─── ...
 ├─── __init__.py
 ├─── .env
-├─── bot.py
+├─── botclient.py
 ├─── __main__.py
 ```
 > [!NOTE]
