@@ -106,33 +106,31 @@ Under `Install Link`, there is a link you send to others. When clicked, that use
 > # **THIS TOKEN IS HOW TO CONNECT TO YOUR APPLICATION WITH CODE, NO ONE NEEDS ANYTHING ELSE TO CONNECT/LOG INTO YOUR BOT EXCEPT THE MOST RECENT TOKEN. NEVER POST IT OR YOU RISK YOUR BOT GETTING HIGHJACKED**
 
 > [!CAUTION]
-> If you do not gitignore the `.env` file in your `.gitignore` file (the `.env` file is where you should put your token, not in your bot code) , then GitHub bots **will** scrape your token (it has happened to me) and may use it. Discord will hopefully send you a message very fast saying they caught it and reset it since they are also scraping for Discord Bot Tokens to watch out for you and keeping your bots secure :)
+> If you do not type `.env` in your `.gitignore` file, (the `.env` file is where you should put your token) , then GitHub bots **will** scrape your token (it has happened to me) and may use it. Discord will hopefully send you a message very fast saying they caught it and reset it since they are also scraping for Discord Bot Tokens to watch out for you and keeping your bots secure :)
 
 ![image](https://github.com/JOwen-ster/Discord_Bot_Workshop_2024/assets/111905194/79737d0c-b11f-4ee2-a0e2-f23a2d7f92f7)
 
 ## Coding the Actual Discord Bot
-By the end, we will have a bot that is able to run Python code that you paste into Discord using pistonapi!
+By the end, we will have a bot that is able to list all canvas assignments given any one of your class id's!
 We will be using the [discord.py](https://discordpy.readthedocs.io/en/stable/) API wrapper in this workshop.
 
 [Read the docs (How to do Commands)](https://discordpy.readthedocs.io/en/stable/ext/commands/commands.html)
 
 [Read the docs (How to do Events/Listeners)](https://discordpy.readthedocs.io/en/stable/api.html?highlight=event#discord-api-events)
 
-Go ahead and install the required libraries listen bellow for Discord, Environment Variables, and PistonAPI (used to run code safely and send the output which is what our bot will do).
-
-Activate a virtual ENV by running this command when you are in the repository directoiry.
+First, activate a virtual ENV by running this command when in this directory.
 ```
 python -m venv botenv
 ```
 
-Install from the requirements.txt in this repo...
+Then, install all requirements and dependancies from the requirements.txt in this repo...
 ```
 pip install -r requirements.txt
 ```
 - or
 Pip install manually with the following command...
 ```
-pip install discord && pip install python-dotenv && pip install pistonapi
+pip install discord && pip install python-dotenv && pip install canvasapi
 ```
 
 After you have successfully installed the libraries...
@@ -140,6 +138,9 @@ After you have successfully installed the libraries...
 ## **Open your favorite code IDE!**
 
 Create a new file named `.env` (no name before the dot) and put the following in it.
+
+> [!NOTE]
+> To get a Canvas API token, login to Canvas, click `Account` -> `Settings` -> Scroll down to the bottom of the `Integrations` tab and then click `+ New Access Token`.
 
 ```
 DISCORD_BOT_TOKEN = 'YOUR_BOT_TOKEN_GOES_HERE'
@@ -151,11 +152,6 @@ Normally you would create a new file named `.gitignore` and put the following in
 .env
 ```
 
-I have already done this for you so all you need to do is run the `__main__.py` file!
+I have already done this for you so all you need to do is run the bot once we add some functionality!
 
-
-
-
-
-
-
+Refer to [main.py](/main.py) for the full finished bot code if you are haivng trouble.
