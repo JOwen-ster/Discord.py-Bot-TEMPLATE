@@ -51,17 +51,17 @@ Template/
 ***CLONE THIS REPOSITORY***
 - [x] HTTPS
 ```
-git clone https://github.com/JOwen-ster/Discord_Bot_Workshop.git
+git clone https://github.com/JOwen-ster/Discord.py-Bot-TEMPLATE.git
 ```
 
 - [X] SSH
 ```
-git clone git@github.com:JOwen-ster/Discord_Bot_Workshop.git
+git clone git@github.com:JOwen-ster/Discord.py-Bot-TEMPLATE.git
 ```
 
 - [X] GitHub CLI
 ```
-gh repo clone JOwen-ster/Discord_Bot_Workshop
+gh repo clone JOwen-ster/Discord.py-Bot-TEMPLATE.git
 ```
 
 ![Discord_Python_Logo](https://images.opencollective.com/discordpy/25fb26d/logo/256.png)
