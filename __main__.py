@@ -1,8 +1,6 @@
 import asyncio
-import discord.ext.commands
 import botclient
 import discord
-import discord.ext
 from utils.loggingsetup import getlog
 from dotenv import load_dotenv
 from os import getenv
@@ -10,7 +8,7 @@ from os import getenv
 
 intents = discord.Intents.default()
 intents.message_content = True
-discordbot = botclient.Bot(command_prefix='^', intents=intents, help_command=None)
+discordbot = botclient.Bot(command_prefix='}', intents=intents, help_command=None)
 
 load_dotenv()
 if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):

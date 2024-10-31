@@ -3,15 +3,14 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from discord.ext import tasks
+from utils.infoformmodal import InfoModal
 from utils.embeds import BotMessageEmbed
 from utils.embeds import BotConfirmationEmbed
 from utils.embeds import BotErrorEmbed
 from utils.loggingsetup import getlog
-from canvasapi import Canvas
-from dotenv import load_dotenv
-from os import getenv
 
-class SendMessage(commands.Cog):
+
+class SendMessages(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         # Start Tasks
@@ -20,7 +19,7 @@ class SendMessage(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         cogs.cog_counter += 1
-        getlog().info(F'Message cog ready ({cogs.cog_counter}/{len(cogs.names)})')
+        getlog().info(F'Messages cog ready ({cogs.cog_counter}/{len(cogs.names)})')
 
     # Slash command (application command) (tree command) example
     # IMPORTANT
@@ -46,12 +45,13 @@ class SendMessage(commands.Cog):
             except discord.InteractionResponded:
                 await interaction.followup.send(content='Sent', ephemeral=True)
             except:
-                getlog().error('ERROR: failed to response to send-message interaction')
+                getlog().error('ERROR: failed to respond to send-message interaction')
             finally:
                 getlog().error('ERROR: Could not terminate send-message successfully')
 
-# ADD APP COMMAND
-
+    @app_commands.command(name='fillout-form', description='Fill out and submit a form to the server!')
+    async def filloutform(self, interaction: discord.Interaction):
+        await interaction.response.send_modal(InfoModal())
 
     # Background task using the asyncio discord.ext tasks decorator
     @tasks.loop(minutes=1.0)
@@ -64,5 +64,6 @@ class SendMessage(commands.Cog):
         getlog().info('TASK WAITING UNTIL READY: Update Status')
         await self.bot.wait_until_ready()
 
+# Add the cog to your discord bot.
 async def setup(bot):
-    await bot.add_cog(SendMessage(bot))
+    await bot.add_cog(SendMessages(bot))

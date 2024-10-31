@@ -11,10 +11,11 @@ class Bot(commands.Bot):
         getlog().info('Running bot setup_hook...')
         for i, cog in enumerate(cogs.names, 1):
             try:
+                # Load all added cogs into the bot
                 await self.load_extension('cogs.' + cog)
                 getlog().info(F'Loaded {cog} cog ({i}/{len(cogs.names)})')
             except:
-                getlog().info(F'Could not load cog.{cog} ({i}/{len(cogs.names)})')
+                getlog().info(F'Could not load cogs.{cog} ({i}/{len(cogs.names)})')
         getlog().info('Ran bot setup_hook')
 
     async def on_ready(self) -> None:

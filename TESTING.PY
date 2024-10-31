@@ -1,9 +1,35 @@
-    # @app_commands.command(name='canvas-assignments')
-    # async def canvasassgn(self, interaction: discord.Interaction, classid: int):
-    #     load_dotenv()
-    #     canvas = Canvas('https://csufullerton.instructure.com', getenv('CANVAS_TOKEN'))
-    #     course = canvas.get_course(classid)
-    #     assgnmts = ''
-    #     for a in course.get_assignments():
-    #         assgnmts += f"{a} DUE AT - {a.due_at}\n"
-    #     await interaction.response.send_message(embed=BotMessageEmbed(description=assgnmts), ephemeral=True)
+# DISCORD WEBHOOK EXAMPLE
+import requests
+import time
+import json
+
+
+def POST(content=''):
+    # Data
+    ENDPOINT_URL = 'https://discord.com/api/webhook/'
+    DATA = {
+        "avatar_url": 'https://banner2.cleanpng.com/20181110/su/kisspng-discord-social-media-portable-network-graphics-cli-1713924150656.webp',
+        "embeds": [
+            {
+                "title": 'Message',
+                "description": content,
+                "color": 16711680  # Red color in decimal
+            }
+        ],
+    }
+
+    # Specify the POST request will be a JSON object/JSON formatted
+    HEADERS = {
+        "Content-Type": "application/json"
+    }
+
+    # POST request
+    response = requests.post(url=ENDPOINT_URL, data=json.dumps(obj=DATA), headers=HEADERS)
+    # Display Request Status Code
+    print(response)
+
+
+while prompt := input('Enter content: '):
+    if prompt == ':q!': break
+    POST(content=prompt)
+    time.sleep(1)

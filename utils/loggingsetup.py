@@ -5,9 +5,6 @@ import logging.handlers
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
 
-def getlog():
-    return logger
-
 handler = logging.handlers.RotatingFileHandler(
     filename='discord_bot.log',
     encoding='utf-8',
@@ -19,3 +16,7 @@ dt_fmt = '%Y-%m-%d %H:%M:%S'
 formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+
+def getlog():
+    global logger
+    return logger
