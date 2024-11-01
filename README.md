@@ -3,7 +3,7 @@ A repo containing a standard file structure template for a Discord bot!
 - Written using [**__Discord.py__**](https://github.com/Rapptz/discord.py)
   - Read the docs [**__here__**](https://discordpy.readthedocs.io/en/stable/)
 
-[TEMPLATE TODO](/TODO.md)
+[**TODO LIST**📋](/TODO.md)
 
 # Content
 - [X] Cogs Directory
