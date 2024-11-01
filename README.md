@@ -109,7 +109,7 @@ Under `Install Link`, there is a link you send to others. When clicked, that use
 ![image](https://github.com/JOwen-ster/Discord_Bot_Workshop_2024/assets/111905194/79737d0c-b11f-4ee2-a0e2-f23a2d7f92f7)
 
 ## Coding the Actual Discord Bot
-By the end, we will have a bot that is able to list all canvas assignments given any one of your class id's!
+By the end, you will have a bot that has a simple slash command that sends messages in an embed, a simple slash command that uses a modal/form, a simple slash command that has buttons and a dropdown menu, a background task that will always be updating the bots Discord status to how many servers its in, and logging setup for all actions the bot does.
 We will be using the [discord.py](https://discordpy.readthedocs.io/en/stable/) API wrapper in this workshop.
 
 [Read the docs (How to do Commands)](https://discordpy.readthedocs.io/en/stable/ext/commands/commands.html)
