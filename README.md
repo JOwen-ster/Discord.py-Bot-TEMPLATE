@@ -41,7 +41,7 @@ Template/
 # **You will need...**
 - A [Discord](https://discord.com/) account
 - [Python](https://www.python.org/) installed
-  - If you want to use JavaScript to make a discord bot, I recommend using this [template](https://github.com/PillowGit/base-discord-js-bot) made by [@PillowGit](https://github.com/PillowGit) for the coding portion
+  - If you want to use JavaScript to make a Discord bot, I recommend using this [template](https://github.com/PillowGit/base-discord-js-bot) made by [@PillowGit](https://github.com/PillowGit) for the coding portion
 - Internet access
 - A IDE to edit and run code (Like Visual Studio Code)
 
@@ -109,26 +109,35 @@ Under `Install Link`, there is a link you send to others. When clicked, that use
 ![image](https://github.com/JOwen-ster/Discord_Bot_Workshop_2024/assets/111905194/79737d0c-b11f-4ee2-a0e2-f23a2d7f92f7)
 
 ## Coding the Actual Discord Bot
-By the end, you will have a bot that has a simple slash command that sends messages in an embed, a simple slash command that uses a modal/form, a simple slash command that has buttons and a dropdown menu, a background task that will always be updating the bots Discord status to how many servers its in, and logging setup for all actions the bot does.
+By the end, you will have a bot that has a simple slash command that sends messages in an embed, a simple slash command that uses a modal/form, a simple slash command that has buttons and a dropdown menu, a background task that will always be updating the bots Discord status to display how many servers it is in, and a logging setup for all actions the bot does.
 We will be using the [discord.py](https://discordpy.readthedocs.io/en/stable/) API wrapper in this workshop.
 
 [Read the docs (How to do Commands)](https://discordpy.readthedocs.io/en/stable/ext/commands/commands.html)
 
 [Read the docs (How to do Events/Listeners)](https://discordpy.readthedocs.io/en/stable/api.html?highlight=event#discord-api-events)
 
-First, activate a virtual ENV by running this command when in this directory.
+First, activate a virtual ENV by running this command once you have changed directory to this repository.
 ```
 python -m venv botenv
+```
+
+Then (only for Windows Powershell Users)
+```
+Set-ExecutionPolicy RemoteSigned
+```
+
+```
+.\botenv\Scripts\Activate.ps1
+```
+
+For Linux users
+```
+source botenv/bin/activate
 ```
 
 Then, install all requirements and dependancies from the requirements.txt in this repo...
 ```
 pip install -r requirements.txt
-```
-- or
-Pip install manually with the following command...
-```
-pip install discord && pip install python-dotenv && pip install canvasapi
 ```
 
 After you have successfully installed the libraries...
