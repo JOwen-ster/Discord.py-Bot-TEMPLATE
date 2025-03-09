@@ -6,6 +6,7 @@ from utils.loggingsetup import getlog
 class Bot(commands.Bot):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.cog_counter = 0
 
     async def setup_hook(self) -> None:
         getlog().info('Running bot setup_hook...')
