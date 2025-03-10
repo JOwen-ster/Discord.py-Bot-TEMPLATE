@@ -1,4 +1,4 @@
-import cogs
+from cogs import names
 from discord.ext import commands
 from utils.loggingsetup import getlog
 
@@ -10,13 +10,13 @@ class Bot(commands.Bot):
 
     async def setup_hook(self) -> None:
         getlog().info('Running bot setup_hook...')
-        for i, cog in enumerate(cogs.names, 1):
+        for i, cog in enumerate(names, 1):
             try:
                 # Load all added cogs into the bot
                 await self.load_extension('cogs.' + cog)
-                getlog().info(F'Loaded {cog} cog ({i}/{len(cogs.names)})')
+                getlog().info(F'Loaded {cog} cog ({i}/{len(names)})')
             except:
-                getlog().info(F'Could not load cogs.{cog} ({i}/{len(cogs.names)})')
+                getlog().info(F'Could not load cogs.{cog} ({i}/{len(names)})')
         getlog().info('Ran bot setup_hook')
 
     async def on_ready(self) -> None:

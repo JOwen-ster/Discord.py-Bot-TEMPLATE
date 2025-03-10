@@ -145,12 +145,8 @@ After you have successfully installed the libraries...
 
 Create a new file named `.env` (no name before the dot) and put the following in it.
 
-> [!NOTE]
-> To get a Canvas API token, login to Canvas, click `Account` -> `Settings` -> Scroll down to the bottom of the `Integrations` tab and then click `+ New Access Token`.
-
 ```
 DISCORD_BOT_TOKEN = 'YOUR_BOT_TOKEN_GOES_HERE'
-CANVAS_TOKEN = 'YOUR_CANVAS_INTEGRATION_TOKEN_HERE'
 ```
 
 Normally you would create a new file named `.gitignore` and put the following inside it.
@@ -159,5 +155,3 @@ Normally you would create a new file named `.gitignore` and put the following in
 ```
 
 I have already done this for you so all you need to do is run the bot once we add some functionality!
-
-Refer to [main.py](/main.py) for the full finished bot code if you are haivng trouble.

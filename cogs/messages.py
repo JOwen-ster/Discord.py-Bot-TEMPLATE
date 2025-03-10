@@ -1,4 +1,4 @@
-import cogs
+from cogs import names
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -18,8 +18,8 @@ class SendMessages(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        cogs.cog_counter += 1
-        getlog().info(F'Messages cog ready ({cogs.cog_counter}/{len(cogs.names)})')
+        self.bot.cog_counter += 1
+        getlog().info(F'Messages cog ready ({self.bot.cog_counter}/{len(names)})')
 
     # Slash command (application command) (tree command) example
     # IMPORTANT

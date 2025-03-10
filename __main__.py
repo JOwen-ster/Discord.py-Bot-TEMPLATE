@@ -8,7 +8,7 @@ from os import getenv
 
 intents = discord.Intents.default()
 intents.message_content = True
-discordbot = botclient.Bot(command_prefix='}', intents=intents, help_command=None)
+discordbot = botclient.Bot(command_prefix='}', intents=intents, help_command=None, cog_counter=0)
 
 load_dotenv()
 if not (TOKEN := getenv("DISCORD_BOT_TOKEN")):

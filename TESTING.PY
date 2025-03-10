@@ -30,6 +30,7 @@ def POST(content=''):
 
 
 while prompt := input('Enter content: '):
-    if prompt == ':q!': break
+    if prompt == ':q!':
+        break
     POST(content=prompt)
     time.sleep(1)
