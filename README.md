@@ -24,7 +24,6 @@ Template/
 │    ├─── util2.py
 │    ├─── util3.py
 │    ├─── ...
-├─── __init__.py
 ├─── .env
 ├─── botclient.py
 ├─── __main__.py
