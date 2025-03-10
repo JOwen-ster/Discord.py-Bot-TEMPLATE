@@ -154,4 +154,4 @@ Normally you would create a new file named `.gitignore` and put the following in
 .env
 ```
 
-I have already done this for you so all you need to do is run the bot once we add some functionality!
+I have already done this for you so all you need to do is add more cogs/functionality and then run [__main__.py](/__main__.py)!
