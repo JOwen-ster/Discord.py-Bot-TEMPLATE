@@ -1,6 +1,5 @@
 from discord import Embed, Color
 
-
 class BotExampleEmbed(Embed):
     def __init__(self, *args, **kwargs):
         # Use default arguments for the inherited embed class
