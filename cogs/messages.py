@@ -24,7 +24,7 @@ class SendMessages(commands.Cog):
     # Slash command (application command) (tree command) example
     # IMPORTANT
     # USE TYPE HINTS FOR ALL PARAMETERS WITH COG SLASH COMMANDS (application commands)
-    # OR ELSE SELF@class WILL BE PASSED AS THE INTERACTION
+    # OR ELSE self WILL BE PASSED AS THE INTERACTION
     # https://github.com/Rapptz/discord.py/discussions/8372
 
     @app_commands.command(name='send-message', description='Type a message the bot should send in the current channel.')
@@ -65,5 +65,5 @@ class SendMessages(commands.Cog):
         await self.bot.wait_until_ready()
 
 # Add the cog to your discord bot.
-async def setup(bot):
+async def setup(bot): # Called by discord.py when the cog is loaded (bot.load_extension)
     await bot.add_cog(SendMessages(bot))
