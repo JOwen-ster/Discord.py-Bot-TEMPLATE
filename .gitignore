@@ -2,3 +2,5 @@
 .vscode/
 __pycache__/
 tempCodeRunnerFile.py
+discord_bot.log
+TESTING.py

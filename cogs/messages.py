@@ -8,6 +8,7 @@ from utils.embeds import BotMessageEmbed
 from utils.embeds import BotConfirmationEmbed
 from utils.embeds import BotErrorEmbed
 from utils.loggingsetup import getlog
+from typing import Literal
 
 
 class SendMessages(commands.Cog):
@@ -51,7 +52,13 @@ class SendMessages(commands.Cog):
 
     @app_commands.command(name='fillout-form', description='Fill out and submit a form to the server!')
     async def filloutform(self, interaction: discord.Interaction):
-        await interaction.response.send_modal(InfoModal())
+        await interaction.response.send_modal(InfoModal())\
+
+    @app_commands.command(name='choices', description='Another app command with choices')
+    async def filloutform(self, interaction: discord.Interaction,
+                        user_choices: Literal['Choice1', 'Choice2', 'Choice3'],
+                        message: str,):
+        await interaction.response.send_message(BotMessageEmbed(description=message))
 
     # Background task using the asyncio discord.ext tasks decorator
     @tasks.loop(minutes=1.0)

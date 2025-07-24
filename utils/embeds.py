@@ -21,3 +21,13 @@ class BotConfirmationEmbed(Embed):
 class BotErrorEmbed(Embed):
     def __init__(self, *args, **kwargs):
         super().__init__(color=Color.red(), *args, **kwargs)
+
+
+def reminderEmbed(embed_title: str, **fields):
+    embed = Embed(
+        title=embed_title,
+        color=Color.red(),
+    )
+    for key, value in fields.items():
+        embed.add_field(name=f'{key}', value=f'{value}', inline=False)
+    return embed

@@ -2,5 +2,5 @@
 names = [
     # Main Cogs
     "messages", # messages.py
-    
+    "other_example" # other_example.py
 ]
