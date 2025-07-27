@@ -7,9 +7,10 @@ A repo containing a standard file structure template for a Discord bot!
 
 # Content
 - [X] Cogs Directory
+- [X] Database Directory
 - [X] Utils Directory
 - [X] Custom Bot Class
-- [X] Main File
+- [X] Runner File
 ```
 Template/
 ├─── cogs/
@@ -26,7 +27,7 @@ Template/
 │    ├─── ...
 ├─── .env
 ├─── botclient.py
-├─── __main__.py
+├─── run_bot.py
 ```
 > [!NOTE]
 > Cogs are used to organize a collection of commands, listeners, and some state into one class. [Cogs Documentation](https://discordpy.readthedocs.io/en/stable/ext/commands/cogs.html)
@@ -154,4 +155,4 @@ Normally you would create a new file named `.gitignore` and put the following in
 .env
 ```
 
-I have already done this for you so all you need to do is add more cogs/functionality and then run [__main__.py](/__main__.py)!
+I have already done this for you so all you need to do is add more cogs/functionality and then run [run_bot.py](/run_bot.py)!

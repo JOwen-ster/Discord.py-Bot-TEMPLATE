@@ -23,7 +23,7 @@ class BotErrorEmbed(Embed):
         super().__init__(color=Color.red(), *args, **kwargs)
 
 
-def reminderEmbed(embed_title: str, **fields):
+def createEmbedFields(embed_title: str, **fields):
     embed = Embed(
         title=embed_title,
         color=Color.red(),

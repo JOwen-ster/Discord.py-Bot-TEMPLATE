@@ -1,37 +1,38 @@
-from cogs import names
 import discord
 from discord import app_commands
 from discord.ext import commands
-from discord.ext import tasks
-from utils.infoformmodal import InfoModal
+from cogs import extensions
 from utils.embeds import BotConfirmationEmbed
-from utils.embeds import reminderEmbed
+from utils.embeds import createEmbedFields
 from utils.loggingsetup import getlog
 
-class Reminders(commands.Cog):
+
+class EmbedMessage(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name='remindme', description='Reminds at a specific time once')
-    @app_commands.describe(title='Title of the reminder',
-                        date='Insert date as MM/DD/YY',
-                        time='Insert time as XX:XX using a 12-hour clock',
-                        details='Description of reminder',
-                        reminder='Insert time as XX:XX of when to be reminded',
+    @commands.Cog.listener()
+    async def on_ready(self):
+        self.bot.cog_counter += 1
+        getlog().info(F'{__name__} ready ({self.bot.cog_counter}/{len(extensions)})')
+
+    @app_commands.command(name='post', description='Create a embed with your own fields')
+    @app_commands.describe(title='Title',
+                        date='Insert a date as MM/DD/YY',
+                        time='Insert a time as XX:XXam/pm using a 12-hour clock',
+                        details='Insert a description',
                         location='Location of reminder (optional)')
-    async def createReminder(self, interaction: discord.Interaction,
+    async def createPost(self, interaction: discord.Interaction,
                         title: str, 
                         date: str, 
                         time: str,
                         details: str,
-                        reminder: str,
                         location: str = "N/A"):
 
-        embed = reminderEmbed(embed_title=title,
+        embed = createEmbedFields(embed_title=title,
                             date=date,
                             time=time,
                             details=details,
-                            reminder=reminder,
                             location=location
         )
         await interaction.channel.send(embed=embed)
@@ -42,4 +43,4 @@ class Reminders(commands.Cog):
 
 # Add the cog to your discord bot.
 async def setup(bot):
-    await bot.add_cog(Reminders(bot))
+    await bot.add_cog(EmbedMessage(bot))
