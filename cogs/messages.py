@@ -52,16 +52,16 @@ class SendMessages(commands.Cog):
 
     @app_commands.command(name='fillout-form', description='Fill out and submit a form to the server!')
     async def filloutform(self, interaction: discord.Interaction):
-        await interaction.response.send_modal(InfoModal())\
+        await interaction.response.send_modal(InfoModal())
 
     @app_commands.command(name='choices', description='Another app command with choices')
-    async def filloutform(self, interaction: discord.Interaction,
+    async def choices(self, interaction: discord.Interaction,
                         user_choices: Literal['Choice1', 'Choice2', 'Choice3'],
                         message: str,):
-        await interaction.response.send_message(BotMessageEmbed(description=message))
+        await interaction.response.send_message(BotMessageEmbed(description=f'{message} - {user_choices}'))
 
-    # Background task using the asyncio discord.ext tasks decorator
-    @tasks.loop(minutes=1.0)
+    # Repeating background task using the asyncio discord.ext tasks decorator
+    @tasks.loop(minutes=5.0)
     async def updatestatus(self):
         await self.bot.change_presence(activity=discord.Game(name=F'in {len(self.bot.guilds)} servers'))
         getlog().info(F'RAN TASK: Update Status')
